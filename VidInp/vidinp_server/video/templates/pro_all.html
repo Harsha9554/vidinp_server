@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap-grid.min.css'
+            integrity='sha512-q0LpKnEKG/pAf1qi1SAyX0lCNnrlJDjAvsyaygu07x8OF4CEOpQhBnYiFW6YDUnOOcyAEiEYlV4S9vEc6akTEw=='
+            crossorigin='anonymous' />
+        <title>VidInp</title>
+        <a href="{% url 'home' %}">Go Home</a>
+    </head>
+
+    <body>
+        <h1>VidInp</h1>
+        <h3>Processed Videos</h3>
+        <div class="container">
+        </div>
+        <!-- <video class="embed-responsive embed-responsive-16by9 mx-20" controls="controls">
+            <source src="{{x.video.url}}" type="video/mp4">
+        </video> -->
+        <div class="mx-10 my-10"> {% for x in pro_vids %} <h3 class="text-center mx-10 mb-2">{{x.caption}}</h3>
+            <video class="embed-responsive" controls="controls" width="852" height="480" src="{{x.video.url}}"
+                frameborder="0"></video> {% endfor %}
+        </div>
+    </body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/cjs/popper-base.min.js'
+        integrity='sha512-d1sBjKLPx5Xv0h9OGd33bdejHRbvgKJlUZWIR+x3q17QepzGSMr5G8W70TqJiwAr5ieL65wtX8ga7KwXgT4bVg=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js'
+        integrity='sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=='
+        crossorigin='anonymous'></script>
+
+</html>
