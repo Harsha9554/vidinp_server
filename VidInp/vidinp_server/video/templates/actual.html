@@ -21,6 +21,7 @@
             <source src="{{x.video.url}}" type="video/mp4">
         </video> -->
         <div class="mx-10 my-10"> {% for x in actual_vids %} <h3 class="text-center mx-10 mb-2">{{x.caption}}</h3>
+            {{x.video.url}}
             <video class="embed-responsive" controls="controls" width="852" height="480" src="{{x.video.url}}"
                 frameborder="0"></video>
             <!-- <button type="submit">Process</button>  -->

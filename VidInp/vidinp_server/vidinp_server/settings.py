@@ -26,6 +26,12 @@ SECRET_KEY = "django-insecure-8i4891hz^bq--llsq5(906amwie$8hex$*%+5vg+rtv$n5gxfn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("video/mp4", ".mp4", True)
+    mimetypes.add_type("video/mov", ".mov", True)
+    mimetypes.add_type("video/webm", ".webm", True)
+
 ALLOWED_HOSTS = []
 
 

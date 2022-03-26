@@ -5,14 +5,12 @@ import detectron2
 # import some common libraries
 import numpy as np
 import cv2
-from google.colab.patches import cv2_imshow
 
 # import some common detectron2 utilities
 from detectron2 import model_zoo # load a model from COCO model ZOO
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
 
-from google.colab import drive
 import cv2
 import time
 from scipy import ndimage
@@ -28,7 +26,9 @@ def process_vid(actual_vid):
     
     
     # open video stream
-    cap = cv2.VideoCapture(r'/content/drive/MyDrive/Prism/take_noob_3.MOV') # change as appropriate
+    x_string = r"{}".format(actual_vid.video.url)
+    print(x_string)
+    cap = cv2.VideoCapture(x_string[1:]) # change as appropriate
     
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     
@@ -52,8 +52,11 @@ def process_vid(actual_vid):
     #cv2.startWindowThread()
     
     # writing the output to a video
-    fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
-    out = cv2.VideoWriter('output.avi', fourcc, 20.0, DIM)
+    # fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
+    # out = cv2.VideoWriter('media/processed_OG/output.avi', fourcc, 20.0, DIM)
+    fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+    out = cv2.VideoWriter('media/processed_OG/output.mp4', fourcc, 20.0, DIM)
+    out_path = "processed_OG/output.mp4"
     
     n_frame = 0
     
@@ -68,7 +71,6 @@ def process_vid(actual_vid):
             first_frame = frame
             break
     
-    cv2_imshow(first_frame)
     
     try:
       while True:
@@ -135,3 +137,4 @@ def process_vid(actual_vid):
       cv2.waitKey(1)
     except:
       print("Completed")
+      return out_path

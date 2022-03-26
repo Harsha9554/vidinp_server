@@ -16,14 +16,20 @@
         <h1>VidInp</h1>
         <h3>Processed Videos</h3>
         <div class="container">
+            <div class="mx-10 my-10"> {% for x in pro_vids %} <h3 class="text-center mx-10 mb-2">{{x.caption}}</h3>
+                <video class="embed-responsive" controls="controls" width="852" height="480" src="{{x.video.url}}"
+                    frameborder="0"></video>
+                <p>
+                    {{x.video.url}}
+                </p>
+                <p>{{x.video.url}}</p>
+                <a href="{{x.video.url}}">NICE</a>
+                {% endfor %}
+            </div>
         </div>
         <!-- <video class="embed-responsive embed-responsive-16by9 mx-20" controls="controls">
             <source src="{{x.video.url}}" type="video/mp4">
         </video> -->
-        <div class="mx-10 my-10"> {% for x in pro_vids %} <h3 class="text-center mx-10 mb-2">{{x.caption}}</h3>
-            <video class="embed-responsive" controls="controls" width="852" height="480" src="{{x.video.url}}"
-                frameborder="0"></video> {% endfor %}
-        </div>
     </body>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/cjs/popper-base.min.js'
         integrity='sha512-d1sBjKLPx5Xv0h9OGd33bdejHRbvgKJlUZWIR+x3q17QepzGSMr5G8W70TqJiwAr5ieL65wtX8ga7KwXgT4bVg=='
